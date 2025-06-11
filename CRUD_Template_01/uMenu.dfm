@@ -1,0 +1,269 @@
+object frmMenu: TfrmMenu
+  Left = 0
+  Top = 0
+  Caption = 'Menu'
+  ClientHeight = 724
+  ClientWidth = 712
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnl1: TPanel
+    Left = 0
+    Top = 0
+    Width = 712
+    Height = 724
+    Align = alClient
+    TabOrder = 0
+    object lbl_Mov: TLabel
+      Left = 19
+      Top = 531
+      Width = 56
+      Height = 13
+      Caption = 'Movimento:'
+    end
+    object btn_Movimento: TButton
+      Left = 577
+      Top = 0
+      Width = 75
+      Height = 25
+      Caption = 'Movimento'
+      TabOrder = 0
+      OnClick = btn_MovimentoClick
+    end
+    object dbgrd_Ordem: TDBGrid
+      Left = 19
+      Top = 550
+      Width = 673
+      Height = 120
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+    object grp_Produtos: TGroupBox
+      Left = 19
+      Top = 27
+      Width = 673
+      Height = 208
+      Caption = 'Produtos'
+      TabOrder = 2
+      object edt_Pesquisar: TEdit
+        Left = 19
+        Top = 20
+        Width = 639
+        Height = 21
+        TabOrder = 0
+        OnChange = edt_PesquisarChange
+      end
+      object dbgrd_Prod: TDBGrid
+        Left = 19
+        Top = 57
+        Width = 639
+        Height = 133
+        DataSource = ds_TabProd
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+    object grp_Dados: TGroupBox
+      Left = 19
+      Top = 263
+      Width = 673
+      Height = 187
+      Caption = 'Dados Produto'
+      TabOrder = 3
+      object dbedt_Nome: TDBEdit
+        Left = 93
+        Top = 57
+        Width = 121
+        Height = 21
+        DataField = 'NOME_PRODUTO'
+        DataSource = ds_TabProd
+        TabOrder = 0
+      end
+      object dbedt_Id: TDBEdit
+        Left = 19
+        Top = 57
+        Width = 68
+        Height = 21
+        DataField = 'ID_PRODUTO'
+        DataSource = ds_TabProd
+        ReadOnly = True
+        TabOrder = 1
+      end
+      object dblkcbb_Categoria: TDBLookupComboBox
+        Left = 220
+        Top = 57
+        Width = 145
+        Height = 21
+        DataField = 'ID_CATEGORIA'
+        DataSource = ds_TabProd
+        KeyField = 'ID_CATEGORIA'
+        ListField = 'NOME_CATEGORIA'
+        ListFieldIndex = 1
+        ListSource = ds_Categoria
+        TabOrder = 2
+      end
+      object btn_Mais: TButton
+        Left = 496
+        Top = 56
+        Width = 29
+        Height = 25
+        Caption = '+'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        OnClick = btn_MaisClick
+      end
+      object btn_Menos: TButton
+        Left = 393
+        Top = 55
+        Width = 29
+        Height = 25
+        Caption = '-'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btn_MenosClick
+      end
+      object dbedt_Estoq: TDBEdit
+        Left = 428
+        Top = 59
+        Width = 62
+        Height = 21
+        DataField = 'QTDE_PRODUTO'
+        DataSource = ds_TabProd
+        TabOrder = 5
+        OnKeyPress = dbedt_EstoqKeyPress
+      end
+      object btn_Salvar: TButton
+        Left = 558
+        Top = 58
+        Width = 75
+        Height = 25
+        Caption = 'Salvar'
+        TabOrder = 6
+        OnClick = btn_SalvarClick
+      end
+      object btn_Novo: TButton
+        Left = 19
+        Top = 143
+        Width = 75
+        Height = 25
+        Caption = 'Novo'
+        TabOrder = 7
+      end
+    end
+  end
+  object qry_PesqProd: TADOQuery
+    Connection = DataModule1.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <
+      item
+        Name = 'produto'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'DECLARE @PRODUTO CHAR(50)'
+      ''
+      'SET @PRODUTO = '#39'%'#39' + :produto + '#39'%'#39
+      ''
+      'SELECT * FROM PRODUTO'
+      'WHERE NOME_PRODUTO LIKE @PRODUTO')
+    Left = 438
+    Top = 85
+    object ID_PRODUTO: TAutoIncField
+      DisplayWidth = 16
+      FieldName = 'ID_PRODUTO'
+      ReadOnly = True
+    end
+    object NOME_PRODUTO: TStringField
+      DisplayWidth = 35
+      FieldName = 'NOME_PRODUTO'
+      FixedChar = True
+      Size = 50
+    end
+    object ID_CATEGORIA: TIntegerField
+      DisplayWidth = 19
+      FieldName = 'ID_CATEGORIA'
+    end
+    object QTDE_PRODUTO: TIntegerField
+      DisplayWidth = 33
+      FieldName = 'QTDE_PRODUTO'
+    end
+  end
+  object qry_Prods: TADOQuery
+    Connection = DataModule1.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM PRODUTO')
+    Left = 358
+    Top = 88
+    object ID_PRODUT: TAutoIncField
+      FieldName = 'ID_PRODUTO'
+      ReadOnly = True
+    end
+    object NOME_PRODU: TStringField
+      FieldName = 'NOME_PRODUTO'
+      FixedChar = True
+      Size = 50
+    end
+    object qry_ProdsID_CATEGORIA: TIntegerField
+      FieldName = 'ID_CATEGORIA'
+    end
+    object qry_ProdsQTDE_PRODUTO: TIntegerField
+      FieldName = 'QTDE_PRODUTO'
+    end
+  end
+  object ds_TabProd: TDataSource
+    DataSet = qry_Prods
+    Left = 397
+    Top = 141
+  end
+  object qry_Categoria: TADOQuery
+    Connection = DataModule1.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM CATEGORIA')
+    Left = 285
+    Top = 282
+    object ID_CATEG: TAutoIncField
+      FieldName = 'ID_CATEGORIA'
+      ReadOnly = True
+    end
+    object NOME_CATEGORIA: TStringField
+      FieldName = 'NOME_CATEGORIA'
+      FixedChar = True
+      Size = 50
+    end
+  end
+  object ds_Categoria: TDataSource
+    DataSet = qry_Categoria
+    Left = 363
+    Top = 285
+  end
+end

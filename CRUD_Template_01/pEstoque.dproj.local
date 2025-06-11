@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/09/27 13:27:02.000.364,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/27 14:10:26.000.628,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/27 14:17:52.000.961,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/28 15:37:49.000.299,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/28 15:49:10.000.136,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMenu.pas=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/28 15:49:10.000.136,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMenu.dfm=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/03/28 15:49:36.000.986,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\pEstoque.dproj=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/03/29 14:29:15.000.481,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit1.pas</Transaction>
+    <Transaction>2022/03/29 15:06:42.000.652,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit1.pas=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\dmEstoque.pas</Transaction>
+    <Transaction>2022/03/29 15:06:42.000.652,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit1.dfm=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\dmEstoque.dfm</Transaction>
+    <Transaction>2022/04/06 17:15:42.000.823,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.pas</Transaction>
+    <Transaction>2022/04/06 17:16:06.000.485,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMovimento.dfm=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.dfm</Transaction>
+    <Transaction>2022/04/06 17:16:06.000.485,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMovimento.pas=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.pas</Transaction>
+    <Transaction>2022/04/06 17:19:19.000.791,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMovimento.pas=</Transaction>
+    <Transaction>2022/04/06 17:19:38.000.993,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.pas</Transaction>
+    <Transaction>2022/04/06 17:22:02.000.133,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.pas</Transaction>
+    <Transaction>2022/04/06 17:22:14.000.090,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.dfm=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMovimento.dfm</Transaction>
+    <Transaction>2022/04/06 17:22:14.000.090,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\Unit2.pas=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUD_Template_01\uMovimento.pas</Transaction>
+  </Transactions>
+</BorlandProject>

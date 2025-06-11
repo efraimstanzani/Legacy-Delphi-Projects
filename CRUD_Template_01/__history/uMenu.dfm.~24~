@@ -1,0 +1,155 @@
+object frmMenu: TfrmMenu
+  Left = 0
+  Top = 0
+  Caption = 'Menu'
+  ClientHeight = 724
+  ClientWidth = 849
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnl1: TPanel
+    Left = 0
+    Top = 0
+    Width = 849
+    Height = 724
+    Align = alClient
+    TabOrder = 0
+    object lbl_Mov: TLabel
+      Left = 19
+      Top = 531
+      Width = 56
+      Height = 13
+      Caption = 'Movimento:'
+    end
+    object btn_Movimento: TButton
+      Left = 753
+      Top = 405
+      Width = 75
+      Height = 25
+      Caption = 'Movimento'
+      TabOrder = 0
+      OnClick = btn_MovimentoClick
+    end
+    object dbgrd_Ordem: TDBGrid
+      Left = 19
+      Top = 550
+      Width = 673
+      Height = 120
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+    object grp_Produtos: TGroupBox
+      Left = 19
+      Top = 24
+      Width = 673
+      Height = 173
+      Caption = 'Produtos'
+      TabOrder = 2
+      object edt_Pesquisar: TEdit
+        Left = 0
+        Top = 20
+        Width = 673
+        Height = 21
+        TabOrder = 0
+        OnChange = edt_PesquisarChange
+      end
+      object dbgrd_Prod: TDBGrid
+        Left = 0
+        Top = 57
+        Width = 673
+        Height = 116
+        DataSource = ds_Prods
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+    object grp_Dados: TGroupBox
+      Left = 19
+      Top = 220
+      Width = 673
+      Height = 242
+      Caption = 'Dados Produto'
+      TabOrder = 3
+      object dbedt_Nome: TDBEdit
+        Left = 34
+        Top = 68
+        Width = 121
+        Height = 21
+        DataField = 'NOME_PRODUTO'
+        DataSource = ds_PesqProd
+        TabOrder = 0
+      end
+    end
+  end
+  object qry_PesqProd: TADOQuery
+    Connection = DataModule1.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <
+      item
+        Name = 'produto'
+        Size = -1
+        Value = Null
+      end>
+    SQL.Strings = (
+      'DECLARE @PRODUTO CHAR(50)'
+      ''
+      'SET @PRODUTO = '#39'%'#39' + :produto + '#39'%'#39
+      ''
+      'SELECT * FROM PRODUTO'
+      'WHERE NOME_PRODUTO LIKE @PRODUTO')
+    Left = 353
+    Top = 152
+    object ID_PRODUTO: TAutoIncField
+      DisplayWidth = 16
+      FieldName = 'ID_PRODUTO'
+      ReadOnly = True
+    end
+    object NOME_PRODUTO: TStringField
+      DisplayWidth = 35
+      FieldName = 'NOME_PRODUTO'
+      FixedChar = True
+      Size = 50
+    end
+    object ID_CATEGORIA: TIntegerField
+      DisplayWidth = 19
+      FieldName = 'ID_CATEGORIA'
+    end
+    object QTDE_PRODUTO: TIntegerField
+      DisplayWidth = 33
+      FieldName = 'QTDE_PRODUTO'
+    end
+  end
+  object ds_PesqProd: TDataSource
+    DataSet = qry_PesqProd
+    Left = 419
+    Top = 149
+  end
+  object qry_Prods: TADOQuery
+    Connection = DataModule1.ADOConnection1
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM PRODUTO')
+    Left = 358
+    Top = 88
+  end
+  object ds_Prods: TDataSource
+    DataSet = qry_Prods
+    Left = 416
+    Top = 88
+  end
+end

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/09/27 13:27:02.000.364,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/27 14:10:26.000.628,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/27 14:17:52.000.961,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/05/18 13:09:01.000.567,=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/05/18 13:13:13.000.179,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUDPOO\src\view\CRUDPOO.View.Main.pas</Transaction>
+    <Transaction>2022/05/18 13:13:13.000.179,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUDPOO\src\view\CRUDPOO.View.Main.dfm</Transaction>
+    <Transaction>2022/05/18 13:13:54.000.268,C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\efraim.souza\Documents\Embarcadero\Studio\Projects\CRUDPOO\CRUDPOODelphi.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

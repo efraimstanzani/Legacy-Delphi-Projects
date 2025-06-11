@@ -1,0 +1,160 @@
+unit uMenu;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Data.Win.ADODB, dmEstoque,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TfrmMenu = class(TForm)
+    pnl1: TPanel;
+    qry_PesqProd: TADOQuery;
+    dbgrd_Prod: TDBGrid;
+    ID_PRODUTO: TAutoIncField;
+    NOME_PRODUTO: TStringField;
+    ID_CATEGORIA: TIntegerField;
+    QTDE_PRODUTO: TIntegerField;
+    btn_Movimento: TButton;
+    dbgrd_Ordem: TDBGrid;
+    lbl_Mov: TLabel;
+    edt_Pesquisar: TEdit;
+    grp_Produtos: TGroupBox;
+    qry_Prods: TADOQuery;
+    grp_Dados: TGroupBox;
+    dbedt_Nome: TDBEdit;
+    ds_TabProd: TDataSource;
+    dbedt_Id: TDBEdit;
+    dblkcbb_Categoria: TDBLookupComboBox;
+    qry_Categoria: TADOQuery;
+    ds_Categoria: TDataSource;
+    ID_CATEG: TAutoIncField;
+    NOME_CATEGORIA: TStringField;
+    ID_PRODUT: TAutoIncField;
+    NOME_PRODU: TStringField;
+    qry_ProdsID_CATEGORIA: TIntegerField;
+    qry_ProdsQTDE_PRODUTO: TIntegerField;
+    btn_Mais: TButton;
+    btn_Menos: TButton;
+    dbedt_Estoq: TDBEdit;
+    btn_Salvar: TButton;
+    btn_Novo: TButton;
+    procedure btn_MovimentoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure edt_PesquisarChange(Sender: TObject);
+    procedure btn_MenosClick(Sender: TObject);
+    procedure btn_MaisClick(Sender: TObject);
+    procedure edt_EstoqKeyPress(Sender: TObject; var Key: Char);
+    procedure dbedt_EstoqKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMenu: TfrmMenu;
+
+implementation
+
+uses
+  uMovimento;
+
+
+
+
+
+{$R *.dfm}
+
+
+
+procedure TfrmMenu.btn_MaisClick(Sender: TObject);
+begin
+  if (dbedt_Estoq.Text <> '') and (StrToInt(dbedt_Estoq.Text) >= 0) then
+    dbedt_Estoq.Text := IntToStr(Succ(StrToInt(dbedt_Estoq.Text)));
+end;
+
+procedure TfrmMenu.btn_MenosClick(Sender: TObject);
+begin
+  if (dbedt_Estoq.Text <> '') and (StrToInt(dbedt_Estoq.Text) > 0) then
+    dbedt_Estoq.Text := IntToStr(Pred(StrToInt(dbedt_Estoq.Text)));
+end;
+
+procedure TfrmMenu.edt_EstoqKeyPress(Sender: TObject; var Key: Char);
+begin
+  //Aceitando apenas números
+  if ((key in ['0'..'9'] = false) and (word(key) <> vk_back)) then
+ key := #0;
+
+end;
+
+procedure TfrmMenu.dbedt_EstoqKeyPress(Sender: TObject; var Key: Char);
+begin
+  //Aceitando apenas números
+  if ((key in ['0'..'9'] = false) and (word(key) <> vk_back)) then
+ key := #0;
+end;
+
+procedure TfrmMenu.btn_MovimentoClick(Sender: TObject);
+begin
+  frmMovimento := TfrmMovimento.Create(Self);
+    with frmMovimento do
+    begin
+      try
+        ShowModal;
+      finally
+        Release;
+      end;
+    end;
+end;
+
+
+
+procedure TfrmMenu.edt_PesquisarChange(Sender: TObject);
+begin
+
+  if edt_Pesquisar.Text = '' then
+  begin
+
+    //DataSource apontando para AdoQuery de resultados gerais - sem parametros
+    ds_TabProd.DataSet := qry_Prods;
+
+  end
+  else
+  begin
+
+    qry_PesqProd.Close;
+
+    //DataSource apontando para AdoQuery de pesquisa - com parametro
+    ds_TabProd.DataSet := qry_PesqProd;
+
+    qry_PesqProd.Parameters.ParamByName('produto').Value := '%'+edt_Pesquisar.Text+'%';
+    qry_PesqProd.Open;
+
+  end;
+
+end;
+
+procedure TfrmMenu.FormCreate(Sender: TObject);
+begin
+  qry_Prods.Active := True;
+  qry_Categoria.Active := True; //Precisa estar aberta para o LookupBox funcionar
+end;
+
+
+
+end.
+
+
+{
+Cadastrar produto
+Remover produto
+Editar produto
+
+
+}

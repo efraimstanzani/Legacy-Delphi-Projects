@@ -1,0 +1,21 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 263
+  Width = 296
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=MSOLEDBSQL.1;Password=gpsi6080;Persist Security Info=Tr' +
+      'ue;User ID=gpsic;Initial Catalog=CRUD_TEMPLATE;Data Source=192.1' +
+      '68.0.27;Use Procedure for Prepare=1;Auto Translate=True;Packet S' +
+      'ize=4096;Workstation ID=DEPINFO03;Initial File Name="";Use Encry' +
+      'ption for Data=False;Tag with column collation when possible=Fal' +
+      'se;MARS Connection=False;DataTypeCompatibility=0;Trust Server Ce' +
+      'rtificate=False;Server SPN="";Application Intent=READWRITE;Multi' +
+      'SubnetFailover=False;Use FMTONLY=False;Authentication="";Access ' +
+      'Token="";TransparentNetworkIPResolution=True'
+    Provider = 'MSOLEDBSQL.1'
+    Left = 126
+    Top = 107
+  end
+end

@@ -1,0 +1,19 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 263
+  Width = 296
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'SERVER=192.168.0.27'
+      'User_Name=gpsic'
+      'Password=gpsi6080'
+      'ApplicationName=Architect'
+      'Workstation=DEPINFO03'
+      'MARS=yes'
+      'DriverID=MSSQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 110
+    Top = 113
+  end
+end

@@ -1,0 +1,69 @@
+unit Coding;
+
+interface
+
+uses  // uses para bibliotecas externas
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    btn1: TButton;
+    ///Esse tipo de comentário vai p/ IDE Help e apresenta um hint quando chamado
+    procedure btn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+//uses // aqui devem ficar as Units do Alt+F11 e tudo do projeto. O memso Vale para o var
+
+{$R *.dfm} //diretiva de compilação
+
+//Comentário
+{ Comentário }
+(*
+  Comentário de
+  várias linhas
+*)
+
+
+(*
+TRABALHANDO COM DIRETIVAS DE COMPILAÇÃO
+{$IF (ProgramVersion > 2.0) }
+ // executa se a condição for verdadeira
+{$ELSE}
+ // executa se a condição for falsa
+{$IFEND}
+
+{$IFDEF TEST}
+// conteúdo será compilado
+{$ENDIF}
+{$IFNDEF TEST}
+// conteúdo não será compilado
+{$ENDIF}
+*)
+
+
+
+procedure TForm1.btn1Click(Sender: TObject);
+var
+  StrMessage : string;
+begin
+  StrMessage := 'Hello, World';
+  ShowMessage (StrMessage);
+end;
+
+initialization
+  ShowMessage('INICIANDO');
+
+finalization
+  ShowMessage('FINALIZANDO');
+
+end.

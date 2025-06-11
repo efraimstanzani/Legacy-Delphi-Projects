@@ -1,0 +1,14 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 263
+  Width = 296
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=SQLNCLI11.1;Persist Security Info=False;User ID=gpsic;I' +
+      'nitial Catalog=CRUD_TEMPLATE;Data Source=192.168.0.27;Initial Fi' +
+      'le Name="";Server SPN=""'
+    Provider = 'SQLNCLI11.1'
+    Left = 124
+    Top = 116
+  end
+end
